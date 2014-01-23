@@ -1,0 +1,13 @@
+{
+  "name": "EPDQ",
+  "version": "0.1.0",
+  "license": "MIT",
+  "author": "Steve Laing",
+  "description": "EPDQ is a Node library for interfacing with Barclaycard's ePDQ payment gateway.",
+  "dependencies": {
+    "qs": "*"
+  },
+  "devDependencies": {
+    "should": "*"
+  }
+}
