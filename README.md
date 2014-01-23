@@ -7,6 +7,8 @@ EPDQ is a node library for interfacing with Barclaycard's EPDQ payment gateway.
 First, configure the EPDQ module for your settings:
 
 ```
+var EPDQ = require('epdq');
+
 EPDQ.config.pspid  = "foo";
 EPDQ.config.shaIn  = "yourshainstring";
 EPDQ.config.shaOut = "yourshaoutstring";
@@ -33,5 +35,9 @@ request.formAttributes();
 ## Tests
 
 ```
-mocha -R spec test/*
+$ npm test
+```
+or more explicitly
+```
+$ mocha -R spec test/*
 ```
