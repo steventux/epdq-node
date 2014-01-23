@@ -1,7 +1,7 @@
-var crypto = require('crypto'),
-    shasum = crypto.createHash('sha1');
+var crypto = require('crypto');
 
 var ShaCalculator = function(parameters, sha){
+  this.shasum = crypto.createHash('sha1');
   this.sha = sha;
   this.parameters = {};
   var val;
@@ -29,8 +29,8 @@ ShaCalculator.prototype.shaSignature = function(){
     buffer += key  + "=" + this.parameters[key] + this.sha;
   }
 
-  shasum.update(buffer);
-  return shasum.digest('hex').toUpperCase();
+  this.shasum.update(buffer);
+  return this.shasum.digest('hex').toUpperCase();
 }
 
 module.exports = ShaCalculator;
