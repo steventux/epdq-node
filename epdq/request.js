@@ -16,30 +16,28 @@ var Request = function(parameters){
     return fullParams;
   };
 };
-Request.prototype = {
-  shaSign : function(){
-    var shaCalculator = new ShaCalculator(this.getFullParameters(), this.config.shaIn);
-    return shaCalculator.shaSignature();
-  },
-  formAttributes : function(){
-    var val,
-        formAttrs = {},
-        fullAttrs = this.getFullParameters();
+Request.prototype.shaSign = function(){
+  var shaCalculator = new ShaCalculator(this.getFullParameters(), this.config.shaIn);
+  return shaCalculator.shaSignature();
+};
+ Request.prototype.formAttributes = function(){
+  var val,
+      formAttrs = {},
+      fullAttrs = this.getFullParameters();
 
-    for(var key in fullAttrs){
-      val = fullAttrs[key];
-      if(val.length){
-        formAttrs[key.toUpperCase()] = val.toString();
-      }
+  for(var key in fullAttrs){
+    val = fullAttrs[key];
+    if(val.length){
+      formAttrs[key.toUpperCase()] = val.toString();
     }
-
-    formAttrs["SHASIGN"] = this.shaSign();
-
-    return formAttrs;
-  },
-  requestUrl : function(){
-    return this.config.testMode ? TEST_URL : LIVE_URL;
   }
+
+  formAttrs["SHASIGN"] = this.shaSign();
+
+  return formAttrs;
+};
+Request.prototype.requestUrl = function(){
+  return this.config.testMode ? TEST_URL : LIVE_URL;
 };
 
 module.exports = Request;
