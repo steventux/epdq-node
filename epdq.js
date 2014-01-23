@@ -1,5 +1,5 @@
 // Shared ePDQ configuration
-EPDQ = {
+var EPDQ = {
   config : {
     testMode : false,
     shaIn : null,
