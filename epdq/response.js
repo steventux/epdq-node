@@ -1,0 +1,3 @@
+var Response = function(queryString){
+  
+};
