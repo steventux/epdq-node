@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/steventux/epdq-node.png)](https://travis-ci.org/steventux/epdq-node)
+
 # EPDQ
 
 EPDQ is a node library for interfacing with Barclaycard's ePDQ payment gateway.
