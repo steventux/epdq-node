@@ -1,6 +1,6 @@
 # EPDQ
 
-EPDQ is a node library for interfacing with Barclaycard's EPDQ payment gateway.
+EPDQ is a node library for interfacing with Barclaycard's ePDQ payment gateway.
 
 ## Usage
 
