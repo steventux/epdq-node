@@ -11,8 +11,9 @@ First, configure the EPDQ module for your settings:
 ```
 var EPDQ = require('epdq');
 
-EPDQ.config.pspid  = "foo";
-EPDQ.config.shaIn  = "yourshainstring";
+EPDQ.config.shaType = "sha1";
+EPDQ.config.pspid  = "MyPSPID";
+EPDQ.config.shaIn  = "Mysecretsig1875!?";
 EPDQ.config.shaOut = "yourshaoutstring";
 ```
 
@@ -31,7 +32,7 @@ var signature = request.shaSign(); // => 'F4CC376CD7A834D997B91598FA747825A238BE
 and generate form parameters including the required ePDQ configuration values for your views.
 
 ```
-request.formAttributes();
+request.formAttributes(); // => { 'AMOUNT' : '1500', 'CURRENCY' : 'EUR', 'LANGUAGE' : 'en_US', 'ORDERID' : '1234', 'PSPID' : 'MyPSPID', 'SHASIGN' : 'F4CC376CD7A834D997B91598FA747825A238BE0A' }
 ```
 
 ## Tests
