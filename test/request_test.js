@@ -42,4 +42,17 @@ describe("Request", function(){
       attrs['SHASIGN'].should.equal('F4CC376CD7A834D997B91598FA747825A238BE0A');
     });
   });
+  describe("requestUrl in test mode", function(){
+    it("should return the test URL", function(){
+      EPDQ.config.testMode = true;
+      new Request(options).requestUrl().should.equal(Request.TEST_URL);
+    });
+  });
+
+  describe("requestUrl in live mode", function(){
+    it("should return the live URL", function(){
+      EPDQ.config.testMode = false;
+      new Request(options).requestUrl().should.equal(Request.LIVE_URL);
+    });
+  });
 });

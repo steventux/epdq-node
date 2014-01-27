@@ -1,7 +1,5 @@
 var EPDQ = require('./../epdq'),
-    ShaCalculator = require('./sha_calculator'),
-    TEST_URL = "https://mdepayments.epdq.co.uk/ncol/test/orderstandard.asp",
-    LIVE_URL = "https://payments.epdq.co.uk/ncol/prod/orderstandard.asp";
+    ShaCalculator = require('./sha_calculator');
 
 var Request = function(parameters){
   this.config = EPDQ.config;
@@ -16,6 +14,10 @@ var Request = function(parameters){
     return fullParams;
   };
 };
+
+Request.TEST_URL = "https://mdepayments.epdq.co.uk/ncol/test/orderstandard.asp";
+Request.LIVE_URL = "https://payments.epdq.co.uk/ncol/prod/orderstandard.asp";
+
 Request.prototype.shaSign = function(){
   var shaCalculator = new ShaCalculator(this.getFullParameters(), this.config.shaIn, this.config.shaType);
   return shaCalculator.shaSignature();
@@ -37,7 +39,7 @@ Request.prototype.shaSign = function(){
   return formAttrs;
 };
 Request.prototype.requestUrl = function(){
-  return this.config.testMode ? TEST_URL : LIVE_URL;
+  return this.config.testMode ? Request.TEST_URL : Request.LIVE_URL;
 };
 
 module.exports = Request;
