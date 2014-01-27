@@ -4,6 +4,7 @@ var EPDQ = require('../epdq'),
 
 describe("Response", function(){
   beforeEach(function(done){
+    EPDQ.config.shaType = 'sha1';
     EPDQ.config.shaOut = "Mysecretsig1875!?"
     done();
   });

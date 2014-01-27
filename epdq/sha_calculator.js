@@ -1,7 +1,7 @@
 var crypto = require('crypto');
 
-var ShaCalculator = function(parameters, sha){
-  this.shasum = crypto.createHash('sha1');
+var ShaCalculator = function(parameters, sha, shaType){
+  this.shasum = crypto.createHash(shaType);
   this.sha = sha;
   this.parameters = {};
   var val;

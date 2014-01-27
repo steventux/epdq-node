@@ -4,7 +4,7 @@ var EPDQ = require('./../epdq'),
 
 
 var calculatedShaOut = function(params){
-  return new ShaCalculator(params, EPDQ.config.shaOut).shaSignature();
+  return new ShaCalculator(params, EPDQ.config.shaOut, EPDQ.config.shaType).shaSignature();
 };
 
 var Response = function(queryString){

@@ -17,7 +17,7 @@ var Request = function(parameters){
   };
 };
 Request.prototype.shaSign = function(){
-  var shaCalculator = new ShaCalculator(this.getFullParameters(), this.config.shaIn);
+  var shaCalculator = new ShaCalculator(this.getFullParameters(), this.config.shaIn, this.config.shaType);
   return shaCalculator.shaSignature();
 };
  Request.prototype.formAttributes = function(){
