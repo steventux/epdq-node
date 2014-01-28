@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/steventux/epdq-node.png)](https://travis-ci.org/steventux/epdq-node)
+[![Build Status](https://travis-ci.org/alphagov/epdq-node.png)](https://travis-ci.org/alphagov/epdq-node)
 
 # EPDQ
 
