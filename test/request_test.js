@@ -1,5 +1,4 @@
 var EPDQ = require('../epdq'),
-    Request = require('../epdq/request'),
     should = require('should'),
     options = {amount: 1500, currency: 'EUR', language: 'en_US', orderid: '1234'};
 
@@ -8,30 +7,29 @@ describe("Request", function(){
     EPDQ.config.shaIn = "Mysecretsig1875!?";
     EPDQ.config.pspId = "MyPSPID";
     done();
-
   })
   it("should calculate sha1 shasign correctly", function(){
     EPDQ.config.shaType = 'sha1';
-    var req = new Request(options);
+    var req = new EPDQ.Request(options);
     req.shaSign().should.equal("F4CC376CD7A834D997B91598FA747825A238BE0A");
   });
 
   it("should calculate sha256 shasign correctly", function(){
     EPDQ.config.shaType = 'sha256';
-    var req = new Request(options);
+    var req = new EPDQ.Request(options);
     req.shaSign().should.equal("E019359BAA3456AE5A986B6AABD22CF1B3E09438739E97F17A7F61DF5A11B30F");
   });
 
   it("should calculate sha512 shasign correctly", function(){
     EPDQ.config.shaType = 'sha512';
-    var req = new Request(options);
+    var req = new EPDQ.Request(options);
     req.shaSign().should.equal("D1CFE8833A297D0922E908B2B44934B09EE966EF1584DC0D696304E07BB58BA71973C2383C831D878D8A243BB7D7DFFFBE53CEE21955CDFEF44FE82E551F859D");
   });
 
   describe("formAttributes", function(){
     it("should return hash of form attributes with uppercase keys", function(){
       EPDQ.config.shaType = 'sha1';
-      var req = new Request(options);
+      var req = new EPDQ.Request(options);
       attrs = req.formAttributes();
 
       attrs['AMOUNT'].should.equal('1500');
@@ -45,14 +43,14 @@ describe("Request", function(){
   describe("requestUrl in test mode", function(){
     it("should return the test URL", function(){
       EPDQ.config.testMode = true;
-      new Request(options).requestUrl().should.equal(Request.TEST_URL);
+      new EPDQ.Request(options).requestUrl().should.equal(EPDQ.Request.TEST_URL);
     });
   });
 
   describe("requestUrl in live mode", function(){
     it("should return the live URL", function(){
       EPDQ.config.testMode = false;
-      new Request(options).requestUrl().should.equal(Request.LIVE_URL);
+      new EPDQ.Request(options).requestUrl().should.equal(EPDQ.Request.LIVE_URL);
     });
   });
 });
