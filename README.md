@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/steventux/epdq-node.png)](https://travis-ci.org/steventux/epdq-node)
+[![Build Status](https://travis-ci.org/alphagov/epdq-node.png)](https://travis-ci.org/alphagov/epdq-node)
 
 # EPDQ
 
@@ -20,7 +20,7 @@ EPDQ.config.shaOut = "yourshaoutstring";
 Then you can build the form for a user to POST to, starting in the controller: All the options keys are named after the downcased fields in the [ePDQ documentation](https://mdepayments.epdq.co.uk/ncol/ePDQ_e-Com-ADV_EN.pdf), provided as strings.
 
 ```
-var request = new Request({amount: 1500, currency: 'EUR', language: 'en_US', orderid: '1234'});
+var request = new EPDQ.Request({amount: 1500, currency: 'EUR', language: 'en_US', orderid: '1234'});
 ```
 
 You can then generate a signature for the request.

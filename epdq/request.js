@@ -1,6 +1,7 @@
 var EPDQ = require('./../epdq'),
     ShaCalculator = require('./sha_calculator');
 
+
 var Request = function(parameters){
   this.config = EPDQ.config;
   this.parameters = parameters;
